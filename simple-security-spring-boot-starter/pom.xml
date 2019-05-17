@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <url>https://github.com/ruifengho/simple-security.git</url>
-    <name>simple-security</name>
+    <name>simple-security-spring-boot-starter</name>
     <description>com.github.ruifengho.simple_security</description>
     <artifactId>simple-security-spring-boot-starter</artifactId>
 
