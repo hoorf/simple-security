@@ -22,7 +22,7 @@ public class PreAuthorizeAspect {
         this.permissionExpressionParser = permissionExpressionParser;
     }
 
-    @Around("@annotation(org.github.ruifengho.simplesecurity.annotation.PreAuthorize) ")
+    @Around("@annotation(com.github.ruifengho.simplesecurity.annotation.PreAuthorize) ")
     public Object preAuth(ProceedingJoinPoint point) throws Throwable {
         MethodSignature signature = (MethodSignature) point.getSignature();
         Method method = signature.getMethod();
