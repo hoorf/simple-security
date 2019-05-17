@@ -1,10 +1,10 @@
-package org.github.ruifengho.simplesecurity.interceptor;
+package com.github.ruifengho.simplesecurity.interceptor;
 
-import org.github.ruifengho.simplesecurity.define.PermissionExpression;
-import org.github.ruifengho.simplesecurity.define.PermissionExpressionParser;
-import org.github.ruifengho.simplesecurity.exception.SimpleSecurityException;
-import org.github.ruifengho.simplesecurity.util.AntPathMatcherUtil;
-import org.github.ruifengho.simplesecurity.util.SpringElCheckUtil;
+import com.github.ruifengho.simplesecurity.define.PermissionExpression;
+import com.github.ruifengho.simplesecurity.define.PermissionExpressionParser;
+import com.github.ruifengho.simplesecurity.util.AntPathMatcherUtil;
+import com.github.ruifengho.simplesecurity.util.SpringElCheckUtil;
+import com.github.ruifengho.simplesecurity.exception.SimpleSecurityException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.expression.spel.support.StandardEvaluationContext;

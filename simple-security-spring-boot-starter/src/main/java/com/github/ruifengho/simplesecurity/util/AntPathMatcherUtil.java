@@ -1,6 +1,6 @@
-package org.github.ruifengho.simplesecurity.util;
+package com.github.ruifengho.simplesecurity.util;
 
-import org.github.ruifengho.simplesecurity.define.HttpMethod;
+import com.github.ruifengho.simplesecurity.define.HttpMethod;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.AntPathMatcher;

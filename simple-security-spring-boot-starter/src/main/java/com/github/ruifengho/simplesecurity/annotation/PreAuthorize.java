@@ -1,4 +1,4 @@
-package org.github.ruifengho.simplesecurity.annotation;
+package com.github.ruifengho.simplesecurity.annotation;
 
 import java.lang.annotation.*;
 

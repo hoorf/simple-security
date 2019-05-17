@@ -1,4 +1,4 @@
-package org.github.ruifengho.simplesecurity.define;
+package com.github.ruifengho.simplesecurity.define;
 
 public class PermissionExpression {
 

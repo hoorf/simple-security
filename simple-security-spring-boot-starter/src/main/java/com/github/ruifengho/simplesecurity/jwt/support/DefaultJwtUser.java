@@ -1,6 +1,6 @@
-package org.github.ruifengho.simplesecurity.jwt.support;
+package com.github.ruifengho.simplesecurity.jwt.support;
 
-import org.github.ruifengho.simplesecurity.jwt.JwtUser;
+import com.github.ruifengho.simplesecurity.jwt.JwtUser;
 
 import java.util.List;
 

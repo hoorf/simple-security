@@ -1,8 +1,8 @@
-package org.github.ruifengho.simplesecurity.autoconfigure;
+package com.github.ruifengho.simplesecurity.autoconfigure;
 
 
-import org.github.ruifengho.simplesecurity.define.PermissionExpressionParser;
-import org.github.ruifengho.simplesecurity.interceptor.PermissionsInterceptor;
+import com.github.ruifengho.simplesecurity.define.PermissionExpressionParser;
+import com.github.ruifengho.simplesecurity.interceptor.PermissionsInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;

@@ -1,9 +1,9 @@
-package org.github.ruifengho.simplesecurity.jwt.support;
+package com.github.ruifengho.simplesecurity.jwt.support;
 
 import io.jsonwebtoken.Claims;
-import org.github.ruifengho.simplesecurity.autoconfigure.SimpleSecurityProperties;
-import org.github.ruifengho.simplesecurity.exception.SimpleSecurityException;
-import org.github.ruifengho.simplesecurity.jwt.JwtTokenParser;
+import com.github.ruifengho.simplesecurity.autoconfigure.SimpleSecurityProperties;
+import com.github.ruifengho.simplesecurity.exception.SimpleSecurityException;
+import com.github.ruifengho.simplesecurity.jwt.JwtTokenParser;
 import org.springframework.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;

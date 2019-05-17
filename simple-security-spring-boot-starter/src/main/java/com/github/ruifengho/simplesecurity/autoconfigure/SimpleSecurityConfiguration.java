@@ -1,9 +1,9 @@
-package org.github.ruifengho.simplesecurity.autoconfigure;
+package com.github.ruifengho.simplesecurity.autoconfigure;
 
-import org.github.ruifengho.simplesecurity.annotation.support.PreAuthorizeAspect;
-import org.github.ruifengho.simplesecurity.define.PermissionExpressionParser;
-import org.github.ruifengho.simplesecurity.jwt.JwtTokenParser;
-import org.github.ruifengho.simplesecurity.jwt.support.DefaultJwtTokenParser;
+import com.github.ruifengho.simplesecurity.define.PermissionExpressionParser;
+import com.github.ruifengho.simplesecurity.jwt.JwtTokenParser;
+import com.github.ruifengho.simplesecurity.jwt.support.DefaultJwtTokenParser;
+import com.github.ruifengho.simplesecurity.annotation.support.PreAuthorizeAspect;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;

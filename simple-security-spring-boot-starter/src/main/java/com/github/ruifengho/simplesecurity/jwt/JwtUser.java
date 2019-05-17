@@ -1,4 +1,4 @@
-package org.github.ruifengho.simplesecurity.jwt;
+package com.github.ruifengho.simplesecurity.jwt;
 
 import java.util.List;
 

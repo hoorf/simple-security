@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-org.github.ruifengho.simplesecurity.autoconfigure.SimpleSecurityWebMvcConfigurer
+com.github.ruifengho.simplesecurity.autoconfigure.SimpleSecurityWebMvcConfigurer

@@ -1,4 +1,4 @@
-package org.github.ruifengho.simplesecurity.exception;
+package com.github.ruifengho.simplesecurity.exception;
 
 public class SimpleSecurityException extends RuntimeException {
 

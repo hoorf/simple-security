@@ -1,7 +1,7 @@
-package org.github.ruifengho.simplesecurity.autoconfigure;
+package com.github.ruifengho.simplesecurity.autoconfigure;
 
+import com.github.ruifengho.simplesecurity.define.PermissionExpression;
 import io.jsonwebtoken.SignatureAlgorithm;
-import org.github.ruifengho.simplesecurity.define.PermissionExpression;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 import java.util.ArrayList;

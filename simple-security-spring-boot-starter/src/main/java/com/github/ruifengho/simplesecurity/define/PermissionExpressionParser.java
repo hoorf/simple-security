@@ -1,7 +1,7 @@
-package org.github.ruifengho.simplesecurity.define;
+package com.github.ruifengho.simplesecurity.define;
 
-import org.github.ruifengho.simplesecurity.jwt.JwtTokenParser;
-import org.github.ruifengho.simplesecurity.jwt.JwtUser;
+import com.github.ruifengho.simplesecurity.jwt.JwtTokenParser;
+import com.github.ruifengho.simplesecurity.jwt.JwtUser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.CollectionUtils;
