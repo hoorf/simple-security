@@ -84,7 +84,7 @@ public abstract class JwtTokenParser<T extends JwtUser> {
     /**
      * 从request中获取用户信息
      *
-     * @return
+     * @return 用户
      */
     public final T getUser() {
         try {
@@ -109,8 +109,8 @@ public abstract class JwtTokenParser<T extends JwtUser> {
     /**
      * 从token中获取用户信息
      *
-     * @param token
-     * @return
+     * @param token jwt
+     * @return 用户
      */
     public final T getUserFromToken(String token) {
         Claims claims = getClaimsFromToken(token);
@@ -121,8 +121,8 @@ public abstract class JwtTokenParser<T extends JwtUser> {
     /**
      * 如何从jwt中返回user
      *
-     * @param claims
-     * @return
+     * @param claims jwtClaims
+     * @return 用户
      */
     protected abstract T getUserFromClaims(Claims claims);
 
