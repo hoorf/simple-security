@@ -16,18 +16,18 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 import java.util.Map;
 
-public abstract class JwtTokenParser<T extends JwtUser> {
+public abstract class BaseJwtTokenParser<T extends JwtUser> {
 
     protected static final int SEVEN = 7;
 
     protected static final String SIMPLE_SECURITY_REQ_ATTR_USER = "simple-security-user";
 
-    private static final Logger logger = LoggerFactory.getLogger(JwtTokenParser.class);
+    private static final Logger logger = LoggerFactory.getLogger(BaseJwtTokenParser.class);
 
     protected SimpleSecurityProperties simpleSecurityProperties;
 
 
-    public JwtTokenParser(SimpleSecurityProperties simpleSecurityProperties) {
+    public BaseJwtTokenParser(SimpleSecurityProperties simpleSecurityProperties) {
         this.simpleSecurityProperties = simpleSecurityProperties;
     }
 

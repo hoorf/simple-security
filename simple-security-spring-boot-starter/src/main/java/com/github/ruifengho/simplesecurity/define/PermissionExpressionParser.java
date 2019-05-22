@@ -1,6 +1,6 @@
 package com.github.ruifengho.simplesecurity.define;
 
-import com.github.ruifengho.simplesecurity.jwt.JwtTokenParser;
+import com.github.ruifengho.simplesecurity.jwt.BaseJwtTokenParser;
 import com.github.ruifengho.simplesecurity.jwt.JwtUser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,11 +16,11 @@ public class PermissionExpressionParser {
 
     private static final Logger logger = LoggerFactory.getLogger(PermissionExpressionParser.class);
 
-    private JwtTokenParser jwtTokenParser;
+    private BaseJwtTokenParser baseJwtTokenParser;
 
 
-    public PermissionExpressionParser(JwtTokenParser jwtTokenParser) {
-        this.jwtTokenParser = jwtTokenParser;
+    public PermissionExpressionParser(BaseJwtTokenParser baseJwtTokenParser) {
+        this.baseJwtTokenParser = baseJwtTokenParser;
     }
 
 
@@ -39,7 +39,7 @@ public class PermissionExpressionParser {
      * @return 如已登录，则返回true
      */
     public boolean hasLogin() {
-        return jwtTokenParser.getUser() != null;
+        return baseJwtTokenParser.getUser() != null;
     }
 
     /**
@@ -59,7 +59,7 @@ public class PermissionExpressionParser {
      * @return 如果拥有roles所有角色，则返回true
      */
     public boolean hasAllRoles(String... roles) {
-        JwtUser user = jwtTokenParser.getUser();
+        JwtUser user = baseJwtTokenParser.getUser();
         if (user == null) {
             return false;
         }
@@ -79,7 +79,7 @@ public class PermissionExpressionParser {
      * @return 如果拥有roles元素之一，则返回true
      */
     public boolean hasAnyRoles(String... roles) {
-        JwtUser user = jwtTokenParser.getUser();
+        JwtUser user = baseJwtTokenParser.getUser();
         if (user == null) {
             return false;
         }

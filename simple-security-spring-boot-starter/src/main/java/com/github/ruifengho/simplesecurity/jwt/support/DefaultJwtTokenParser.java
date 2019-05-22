@@ -3,7 +3,7 @@ package com.github.ruifengho.simplesecurity.jwt.support;
 import io.jsonwebtoken.Claims;
 import com.github.ruifengho.simplesecurity.autoconfigure.SimpleSecurityProperties;
 import com.github.ruifengho.simplesecurity.exception.SimpleSecurityException;
-import com.github.ruifengho.simplesecurity.jwt.JwtTokenParser;
+import com.github.ruifengho.simplesecurity.jwt.BaseJwtTokenParser;
 import org.springframework.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,7 +14,7 @@ import java.util.Map;
 /**
  * 默认jwt存储处理
  */
-public class DefaultJwtTokenParser extends JwtTokenParser<DefaultJwtUser> {
+public class DefaultJwtTokenParser extends BaseJwtTokenParser<DefaultJwtUser> {
 
 
     protected static final String USER_ID = "id";

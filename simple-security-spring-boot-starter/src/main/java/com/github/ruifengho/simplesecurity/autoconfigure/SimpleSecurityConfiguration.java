@@ -1,7 +1,7 @@
 package com.github.ruifengho.simplesecurity.autoconfigure;
 
 import com.github.ruifengho.simplesecurity.define.PermissionExpressionParser;
-import com.github.ruifengho.simplesecurity.jwt.JwtTokenParser;
+import com.github.ruifengho.simplesecurity.jwt.BaseJwtTokenParser;
 import com.github.ruifengho.simplesecurity.jwt.support.DefaultJwtTokenParser;
 import com.github.ruifengho.simplesecurity.annotation.support.PreAuthorizeAspect;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
@@ -18,14 +18,14 @@ public class SimpleSecurityConfiguration {
 
     @Bean
     @ConditionalOnMissingBean
-    public JwtTokenParser jwtTokenParser(SimpleSecurityProperties simpleSecurityProperties) {
+    public BaseJwtTokenParser jwtTokenParser(SimpleSecurityProperties simpleSecurityProperties) {
         return new DefaultJwtTokenParser(simpleSecurityProperties);
     }
 
     @Bean
     @ConditionalOnMissingBean
-    public PermissionExpressionParser permissionExpressionParser(JwtTokenParser jwtTokenParser) {
-        return new PermissionExpressionParser(jwtTokenParser);
+    public PermissionExpressionParser permissionExpressionParser(BaseJwtTokenParser baseJwtTokenParser) {
+        return new PermissionExpressionParser(baseJwtTokenParser);
     }
 
     @Bean
