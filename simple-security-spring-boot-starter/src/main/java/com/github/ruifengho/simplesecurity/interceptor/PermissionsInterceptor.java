@@ -32,8 +32,6 @@ public class PermissionsInterceptor extends HandlerInterceptorAdapter {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
-        logger.error("{}", expressions);
-
         boolean check = expressions.stream().filter(exp -> AntPathMatcherUtil.match(request, exp.getHttpMethod(), exp.getPath())).findFirst().map(exp -> SpringElCheckUtil.check(new StandardEvaluationContext(permissionExpressionParser), exp.getExpression())).orElse(true);
         if (!check) {
             throw new SimpleSecurityException("Access Denied.");
