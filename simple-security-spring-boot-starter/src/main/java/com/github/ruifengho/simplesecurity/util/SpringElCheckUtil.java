@@ -12,7 +12,7 @@ public final class SpringElCheckUtil {
 
     public static boolean check(EvaluationContext context, String expression) {
         Boolean result = PARSER.parseExpression(expression).getValue(context, Boolean.class);
-        logger.info("expression = {}, eval result = {}", expression, result);
+        logger.debug("expression = {}, eval result = {}", expression, result);
         return result != null ? result : false;
     }
 }

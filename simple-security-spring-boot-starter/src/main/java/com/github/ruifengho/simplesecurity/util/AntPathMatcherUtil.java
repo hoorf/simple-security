@@ -28,7 +28,7 @@ public class AntPathMatcherUtil {
         boolean methodMatches = matchMethod(request, httpMethod);
         boolean pathMatches = matchPath(request, pattern);
 
-        logger.info("match begins. {} {}, httpMethod = {}, pattern = {}, methodMatch = {}, pathMatches = {}",
+        logger.debug("match begins. {} {}, httpMethod = {}, pattern = {}, methodMatch = {}, pathMatches = {}",
                 request.getMethod(), getRequestPath(request),
                 httpMethod, pattern, methodMatches, pathMatches
         );
