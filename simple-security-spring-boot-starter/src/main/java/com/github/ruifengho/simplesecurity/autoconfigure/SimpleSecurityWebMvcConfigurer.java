@@ -1,6 +1,8 @@
 package com.github.ruifengho.simplesecurity.autoconfigure;
 
 
+import com.github.ruifengho.simplesecurity.annotation.support.EncryptRequestBodyAdvice;
+import com.github.ruifengho.simplesecurity.annotation.support.EncryptResponseBodyAdvice;
 import com.github.ruifengho.simplesecurity.define.PermissionExpressionParser;
 import com.github.ruifengho.simplesecurity.interceptor.PermissionsInterceptor;
 import org.springframework.context.annotation.Configuration;
@@ -10,7 +12,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 
 @Configuration
-@Import(SimpleSecurityConfiguration.class)
+@Import({SimpleSecurityConfiguration.class})
 public class SimpleSecurityWebMvcConfigurer implements WebMvcConfigurer {
 
     private SimpleSecurityProperties simpleSecurityProperties;

@@ -1,7 +1,7 @@
 package org.github.ruifengho.simplesecurity.demo;
 
 
-import org.github.ruifengho.simplesecurity.exception.SimpleSecurityException;
+import com.github.ruifengho.simplesecurity.exception.SimpleSecurityException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

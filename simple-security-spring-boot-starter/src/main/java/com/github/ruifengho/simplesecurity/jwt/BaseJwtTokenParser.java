@@ -1,10 +1,10 @@
 package com.github.ruifengho.simplesecurity.jwt;
 
+import com.github.ruifengho.simplesecurity.autoconfigure.SimpleSecurityProperties;
+import com.github.ruifengho.simplesecurity.exception.SimpleSecurityException;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
 import io.jsonwebtoken.security.SignatureException;
-import com.github.ruifengho.simplesecurity.autoconfigure.SimpleSecurityProperties;
-import com.github.ruifengho.simplesecurity.exception.SimpleSecurityException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.context.request.RequestAttributes;
@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 import java.util.Map;
 
-public abstract class BaseJwtTokenParser<T extends JwtUser> {
+public abstract class BaseJwtTokenParser<T extends JwtUser> implements JwtTokenParser<T>{
 
     protected static final int SEVEN = 7;
 

@@ -5,18 +5,17 @@
     <parent>
         <artifactId>simple-security</artifactId>
         <groupId>com.github.ruifengho</groupId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.2</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>simple-security-demo</artifactId>
 
-
     <dependencies>
         <dependency>
             <groupId>com.github.ruifengho</groupId>
             <artifactId>simple-security-spring-boot-starter</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>1.2</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

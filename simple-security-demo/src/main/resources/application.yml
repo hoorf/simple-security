@@ -17,7 +17,7 @@ simple-security:
       expression: "anon()"
     - http-method: ANY
       path: /**
-      expression: "hasLogin()"
+      expression: "anon()"
   jwt:
     # jwt sign算法
     algorithm: hs512
@@ -25,3 +25,7 @@ simple-security:
     secret: http-security-secret-modify-mehttp-security-secret-modify-mehttp-security-secret-modify-mehttp-security-secret-modify-mehttp-security-secret-modify-mehttp-security-secret-modify-mehttp-security-secret-modify-mehttp-security-secret-modify-mehttp-security-secret-modify-mehttp-security-secret-modify-me
     # jwt 有效时间
     expiration-in-second: 1209600
+  jwe:
+    open: true
+    private-key: MIICeQIBADANBgkqhkiG9w0BAQEFAASCAmMwggJfAgEAAoGBAM1ngAZgLJKjevXImx5zl7T9huBGSydGBRhHgEwPRubp1FRyOHFkZ3vYPlUUo+DiFrUmnZGTab8Yua1CRUzwXxHDreWy+s0iyJByB6rZOyhJpaEariJP3ZzZ1ojUSE73Hp6h6lDPyjZjEDCeBIehD7HvdTzjR7AZm2tE21H4u1ovAgMBAAECgYEAt0Lozsdv/UUup6vb+kdXy3uHowIUe23Vjdv9c98Ne2iUsONXyJO0YKKGupI3xKTzbZyOaRwE9SKyRwshmYu8xRuJKeXttkC/E3COLNC+NMK+yc8/4B5vCo2Lv66NRNWi3gMEFrPEiqXxcTY1RA3oGKdncWOV1lW6zKbMslBl1gECQQDlX+MyQ5dx6rRvzwCv6CZlCT4b5QNZRqotbO6WHPHKhoGlDxwMh0yArC/7n8MOuvqYp+wsINfkfO2FcSs0z+pPAkEA5T9PdRbGhvzxjQUDjP441/OCfdme4hGIPxsfeBRfXjnzAGtuzOEPUMXDBr9wQHVmrY8tSqWOx2E9MGaBANP6IQJBAKjrnN3/eSCjwI423EKvrNbrn5nbZkPxDpK1jl9uoYKM3B06q2VunqCELjIYzgWjHboesIcvCM90UVfcp/0UwXECQQCLQv593qwTbK1AQX96syTM6vymfwDpzES8MTnYtGeK0iEwbBMPGtk29CwZeUoznh4V6RhWdGRb8lI9iMdtPViBAkEAgD1vg34I9Ng6hk3SAouZ4MhhhTi2s0LBJcpU6KH+mOVCrPoVuv5dte4xvwWB05Mh3tpyshor3Ooy5TIC0FppRw==
+    public-key: MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDNZ4AGYCySo3r1yJsec5e0/YbgRksnRgUYR4BMD0bm6dRUcjhxZGd72D5VFKPg4ha1Jp2Rk2m/GLmtQkVM8F8Rw63lsvrNIsiQcgeq2TsoSaWhGq4iT92c2daI1EhO9x6eoepQz8o2YxAwngSHoQ+x73U840ewGZtrRNtR+LtaLwIDAQAB
