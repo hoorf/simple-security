@@ -1,6 +1,6 @@
 package com.github.ruifengho.simplesecurity.annotation.support;
 
-import com.github.ruifengho.simplesecurity.annotation.Decrypt;
+import com.github.ruifengho.simplesecurity.annotation.ApiDecrypt;
 import com.github.ruifengho.simplesecurity.autoconfigure.SimpleSecurityProperties;
 import com.github.ruifengho.simplesecurity.util.RSAUtil;
 import org.slf4j.Logger;
@@ -28,7 +28,7 @@ public class EncryptRequestBodyAdvice implements RequestBodyAdvice {
 
     @Override
     public boolean supports(MethodParameter methodParameter, Type type, Class<? extends HttpMessageConverter<?>> aClass) {
-        return methodParameter.hasMethodAnnotation(Decrypt.class) && simpleSecurityProperties.getJwe().isOpen();
+        return methodParameter.hasMethodAnnotation(ApiDecrypt.class) && simpleSecurityProperties.getJwe().isOpen();
     }
 
     @Override
@@ -62,6 +62,9 @@ public class EncryptRequestBodyAdvice implements RequestBodyAdvice {
             content = new BufferedReader(new InputStreamReader(inputMessage.getBody()))
                     .lines().collect(Collectors.joining(System.lineSeparator()));
             decryptBody = RSAUtil.decrypt(content, simpleSecurityProperties.getJwe().getPrivateKey());
+            if(simpleSecurityProperties.getJwe().isShowLog()){
+                logger.info("decrypt after : {} ,before : {}",decryptBody,content);
+            }
         } catch (Exception e) {
             logger.error("decrypt error => {}", content);
             logger.error("error for ", e);

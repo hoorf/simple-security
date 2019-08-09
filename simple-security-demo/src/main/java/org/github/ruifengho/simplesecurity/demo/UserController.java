@@ -1,16 +1,14 @@
 package org.github.ruifengho.simplesecurity.demo;
 
 
-import com.github.ruifengho.simplesecurity.annotation.Encrypt;
+import com.github.ruifengho.simplesecurity.annotation.ApiDecrypt;
+import com.github.ruifengho.simplesecurity.annotation.ApiEncrypt;
 import com.github.ruifengho.simplesecurity.annotation.PreAuthorize;
-import com.github.ruifengho.simplesecurity.jwt.BaseJwtTokenParser;
 import com.github.ruifengho.simplesecurity.jwt.JwtTokenParser;
 import com.github.ruifengho.simplesecurity.jwt.JwtUser;
 import com.github.ruifengho.simplesecurity.jwt.support.DefaultJwtUser;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
 
@@ -63,8 +61,7 @@ public class UserController {
 
 
     @GetMapping("encryption")
-    @Encrypt
-    @ResponseBody
+    @ApiEncrypt
     public DefaultJwtUser encryption(){
         DefaultJwtUser user = DefaultJwtUser.builder()
                 .id(1 + "")
@@ -72,5 +69,12 @@ public class UserController {
                 .permissions(Arrays.asList("user", "admin"))
                 .build();
         return user;
+    }
+
+    @ApiDecrypt
+    @PostMapping("/decryption")
+    public String Decryption(@RequestBody DefaultJwtUser test){
+        System.out.println(test);
+        return test.toString();
     }
 }

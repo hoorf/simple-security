@@ -48,6 +48,16 @@ public class DefaultJwtUser implements JwtUser {
         return permissions;
     }
 
+
+    @Override
+    public String toString() {
+        return "DefaultJwtUser{" +
+                "id='" + id + '\'' +
+                ", userName='" + userName + '\'' +
+                ", permissions=" + permissions +
+                '}';
+    }
+
     public static class DefaultUserBuilder {
         private String id;
         private String userName;

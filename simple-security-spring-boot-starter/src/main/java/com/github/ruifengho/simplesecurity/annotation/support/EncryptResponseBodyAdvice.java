@@ -1,7 +1,7 @@
 package com.github.ruifengho.simplesecurity.annotation.support;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.github.ruifengho.simplesecurity.annotation.Encrypt;
+import com.github.ruifengho.simplesecurity.annotation.ApiEncrypt;
 import com.github.ruifengho.simplesecurity.autoconfigure.SimpleSecurityProperties;
 import com.github.ruifengho.simplesecurity.util.RSAUtil;
 import org.slf4j.Logger;
@@ -27,7 +27,7 @@ public class EncryptResponseBodyAdvice implements ResponseBodyAdvice {
 
     @Override
     public boolean supports(MethodParameter returnType, Class converterType) {
-        return returnType.hasMethodAnnotation(Encrypt.class) && simpleSecurityProperties.getJwe().isOpen();
+        return returnType.hasMethodAnnotation(ApiEncrypt.class) && simpleSecurityProperties.getJwe().isOpen();
     }
 
     @Override
@@ -35,9 +35,10 @@ public class EncryptResponseBodyAdvice implements ResponseBodyAdvice {
         String result;
         try {
             String value = objectMapper.writeValueAsString(body);
-            logger.info(value);
-            logger.info(simpleSecurityProperties.getJwe().getPublicKey());
             result = RSAUtil.encrypt(value, simpleSecurityProperties.getJwe().getPublicKey());
+            if(simpleSecurityProperties.getJwe().isShowLog()){
+                logger.info("encrypt before : {} ,after : {}",value,result);
+            }
             return result;
         } catch (Exception e) {
             logger.error("Encrypt error", e);
