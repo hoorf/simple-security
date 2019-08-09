@@ -1,7 +1,7 @@
 package com.github.ruifengho.simplesecurity.annotation.support;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.github.ruifengho.simplesecurity.annotation.ApiEncrypt;
+import com.github.ruifengho.simplesecurity.annotation.RsaApiEncrypt;
 import com.github.ruifengho.simplesecurity.autoconfigure.SimpleSecurityProperties;
 import com.github.ruifengho.simplesecurity.util.RSAUtil;
 import org.slf4j.Logger;
@@ -16,8 +16,8 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 
 @RestControllerAdvice
-public class EncryptResponseBodyAdvice implements ResponseBodyAdvice {
-    private static final Logger logger = LoggerFactory.getLogger(EncryptResponseBodyAdvice.class);
+public class RsaEncryptResponseBodyAdvice implements ResponseBodyAdvice {
+    private static final Logger logger = LoggerFactory.getLogger(RsaEncryptResponseBodyAdvice.class);
 
     @Autowired
     private ObjectMapper objectMapper;
@@ -27,7 +27,7 @@ public class EncryptResponseBodyAdvice implements ResponseBodyAdvice {
 
     @Override
     public boolean supports(MethodParameter returnType, Class converterType) {
-        return returnType.hasMethodAnnotation(ApiEncrypt.class) && simpleSecurityProperties.getJwe().isOpen();
+        return returnType.hasMethodAnnotation(RsaApiEncrypt.class);
     }
 
     @Override
@@ -35,8 +35,8 @@ public class EncryptResponseBodyAdvice implements ResponseBodyAdvice {
         String result;
         try {
             String value = objectMapper.writeValueAsString(body);
-            result = RSAUtil.encrypt(value, simpleSecurityProperties.getJwe().getPublicKey());
-            if(simpleSecurityProperties.getJwe().isShowLog()){
+            result = RSAUtil.encrypt(value, simpleSecurityProperties.getApiEncrypt().getRsa().getPublicKey());
+            if(simpleSecurityProperties.getApiEncrypt().isShowLog()){
                 logger.info("encrypt before : {} ,after : {}",value,result);
             }
             return result;

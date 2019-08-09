@@ -1,8 +1,8 @@
 package org.github.ruifengho.simplesecurity.demo;
 
 
-import com.github.ruifengho.simplesecurity.annotation.ApiDecrypt;
-import com.github.ruifengho.simplesecurity.annotation.ApiEncrypt;
+import com.github.ruifengho.simplesecurity.annotation.RsaApiDecrypt;
+import com.github.ruifengho.simplesecurity.annotation.RsaApiEncrypt;
 import com.github.ruifengho.simplesecurity.annotation.PreAuthorize;
 import com.github.ruifengho.simplesecurity.jwt.JwtTokenParser;
 import com.github.ruifengho.simplesecurity.jwt.JwtUser;
@@ -61,7 +61,7 @@ public class UserController {
 
 
     @GetMapping("encryption")
-    @ApiEncrypt
+    @RsaApiEncrypt
     public DefaultJwtUser encryption(){
         DefaultJwtUser user = DefaultJwtUser.builder()
                 .id(1 + "")
@@ -71,7 +71,7 @@ public class UserController {
         return user;
     }
 
-    @ApiDecrypt
+    @RsaApiDecrypt
     @PostMapping("/decryption")
     public String Decryption(@RequestBody DefaultJwtUser test){
         System.out.println(test);

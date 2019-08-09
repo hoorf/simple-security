@@ -11,7 +11,7 @@ import java.util.List;
 public class SimpleSecurityProperties {
 
     private Jwt jwt = new Jwt();
-    private Jwe jwe = new Jwe();
+    private EncryptApi apiEncrypt = new EncryptApi();
     private List<PermissionExpression> expressionList = new ArrayList();
 
     public Jwt getJwt() {
@@ -30,12 +30,12 @@ public class SimpleSecurityProperties {
         this.expressionList = expressionList;
     }
 
-    public Jwe getJwe() {
-        return jwe;
+    public EncryptApi getApiEncrypt() {
+        return apiEncrypt;
     }
 
-    public void setJwe(Jwe jwe) {
-        this.jwe = jwe;
+    public void setApiEncrypt(EncryptApi apiEncrypt) {
+        this.apiEncrypt = apiEncrypt;
     }
 
     public static class Jwt {
@@ -79,19 +79,10 @@ public class SimpleSecurityProperties {
         }
     }
 
-    public static class Jwe {
-        private boolean open;
+    public static class EncryptApi {
         private boolean showLog;
-        private String privateKey;
-        private String publicKey;
-
-        public boolean isOpen() {
-            return open;
-        }
-
-        public void setOpen(boolean open) {
-            this.open = open;
-        }
+        private RSA rsa = new RSA();
+        private DES des = new DES();
 
         public boolean isShowLog() {
             return showLog;
@@ -101,6 +92,44 @@ public class SimpleSecurityProperties {
             this.showLog = showLog;
         }
 
+        public RSA getRsa() {
+            return rsa;
+        }
+
+        public void setRsa(RSA rsa) {
+            this.rsa = rsa;
+        }
+
+        public DES getDes() {
+            return des;
+        }
+
+        public void setDes(DES des) {
+            this.des = des;
+        }
+    }
+
+    public static class DES{
+        private String key;
+
+        public String getKey() {
+            return key;
+        }
+
+        public void setKey(String key) {
+            this.key = key;
+        }
+    }
+
+    public static class AES{
+
+    }
+
+
+
+    public static class RSA {
+        private String privateKey;
+        private String publicKey;
         public String getPrivateKey() {
             return privateKey;
         }

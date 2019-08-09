@@ -7,6 +7,6 @@ import java.util.function.Function;
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-public @interface ApiDecrypt {
+public @interface RsaApiDecrypt {
 
 }
