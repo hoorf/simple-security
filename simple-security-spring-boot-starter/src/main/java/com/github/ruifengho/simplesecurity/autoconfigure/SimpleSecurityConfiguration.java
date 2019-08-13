@@ -3,6 +3,7 @@ package com.github.ruifengho.simplesecurity.autoconfigure;
 import com.github.ruifengho.simplesecurity.annotation.support.RsaEncryptRequestBodyAdvice;
 import com.github.ruifengho.simplesecurity.annotation.support.RsaEncryptResponseBodyAdvice;
 import com.github.ruifengho.simplesecurity.annotation.support.PreAuthorizeAspect;
+import com.github.ruifengho.simplesecurity.annotation.support.SignApiResolver;
 import com.github.ruifengho.simplesecurity.define.PermissionExpressionParser;
 import com.github.ruifengho.simplesecurity.jwt.BaseJwtTokenParser;
 import com.github.ruifengho.simplesecurity.jwt.support.DefaultJwtTokenParser;
@@ -46,6 +47,12 @@ public class SimpleSecurityConfiguration {
     @ConditionalOnMissingBean
     public RsaEncryptResponseBodyAdvice rsaEncryptResponseBodyAdvice() {
         return new RsaEncryptResponseBodyAdvice();
+    }
+
+    @Bean
+    @ConditionalOnMissingBean
+    public SignApiResolver signApiResolver(){
+        return new SignApiResolver();
     }
 
 

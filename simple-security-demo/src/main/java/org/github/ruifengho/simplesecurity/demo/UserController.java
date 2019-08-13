@@ -4,6 +4,7 @@ package org.github.ruifengho.simplesecurity.demo;
 import com.github.ruifengho.simplesecurity.annotation.RsaApiDecrypt;
 import com.github.ruifengho.simplesecurity.annotation.RsaApiEncrypt;
 import com.github.ruifengho.simplesecurity.annotation.PreAuthorize;
+import com.github.ruifengho.simplesecurity.annotation.SignApiDecrypt;
 import com.github.ruifengho.simplesecurity.jwt.JwtTokenParser;
 import com.github.ruifengho.simplesecurity.jwt.JwtUser;
 import com.github.ruifengho.simplesecurity.jwt.support.DefaultJwtUser;
@@ -76,5 +77,11 @@ public class UserController {
     public String Decryption(@RequestBody DefaultJwtUser test){
         System.out.println(test);
         return test.toString();
+    }
+
+
+    @GetMapping("/order")
+    public Order getOrder(@SignApiDecrypt Order order){
+        return order;
     }
 }
