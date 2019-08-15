@@ -121,10 +121,6 @@ public class SimpleSecurityProperties {
         }
     }
 
-    public static class AES{
-
-    }
-
 
 
     public static class RSA {
