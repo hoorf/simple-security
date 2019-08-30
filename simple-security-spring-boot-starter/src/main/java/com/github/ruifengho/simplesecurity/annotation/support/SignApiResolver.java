@@ -13,8 +13,10 @@ import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.method.support.ModelAndViewContainer;
 
+import java.util.Arrays;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.stream.Collectors;
 
 public class SignApiResolver implements HandlerMethodArgumentResolver {
 
@@ -37,7 +39,7 @@ public class SignApiResolver implements HandlerMethodArgumentResolver {
         Class<?> targetClass = parameter.getNestedParameterType();
         Object result = targetClass.newInstance();
         Map<String, String[]> parameterMap = webRequest.getParameterMap();
-        if (validate(parameterMap, signApiDecrypt)) {
+        if (!validate(parameterMap, signApiDecrypt)) {
             throw new IllegalArgumentException(" validate sign error");
         }
         BeanUtils.populate(result, parameterMap);
@@ -48,11 +50,12 @@ public class SignApiResolver implements HandlerMethodArgumentResolver {
 
         boolean needLog = simpleSecurityProperties.getApiEncrypt().isShowLog();
         TreeMap<String, String[]> sortMap = new TreeMap<>(parameterMap);
-        String sign = sortMap.get(signApiDecrypt.sign()).toString();
+        String sign = sortMap.get(signApiDecrypt.sign())[0];
         sortMap.remove(signApiDecrypt.sign());
         StringBuilder sb = new StringBuilder();
+        System.err.println(sortMap);
         for (String key : sortMap.keySet()) {
-            sb.append(key).append("=").append(sortMap.get(key).toString()).append("&");
+            sb.append(key).append("=").append(sortMap.get(key)[0]).append("&");
         }
         sb.deleteCharAt(sb.length() - 1);
 
